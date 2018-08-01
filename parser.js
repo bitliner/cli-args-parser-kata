@@ -13,7 +13,11 @@ asKey = (inputWithLeadingMinus) => {
 }
 
 asValue = (unparsedValue) => {
-    return (unparsedValue.match(/^[0-9]+$/)) ? parseInt(unparsedValue) : unparsedValue
+    return isANumber(unparsedValue) ? parseInt(unparsedValue) : unparsedValue
+}
+
+isANumber = (text) => {
+    return text.match(/^[0-9]+$/)
 }
 
 module.exports = parse
