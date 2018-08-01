@@ -1,4 +1,4 @@
-parse = (inputs) => {
+const parse = (inputs) => {
     let lastKey
 
     return asArray(inputs).reduce((acc, curr) => {
@@ -18,23 +18,23 @@ parse = (inputs) => {
     }, {})
 }
 
-isAKey = (value) => {
+const isAKey = (value) => {
     return value.match(/^--/)
 }
 
-asKey = (inputWithLeadingMinus) => {
+const asKey = (inputWithLeadingMinus) => {
     return inputWithLeadingMinus.replace(/-/g, '')
 }
 
-asValue = (unparsedValue) => {
+const asValue = (unparsedValue) => {
     return isANumber(unparsedValue) ? parseInt(unparsedValue) : unparsedValue
 }
 
-isANumber = (text) => {
+const isANumber = (text) => {
     return text.match(/^[0-9]+$/)
 }
 
-asArray = (inputs) => {
+const asArray = (inputs) => {
     return (Array.isArray(inputs)) ? inputs : inputs.split(" ")
 }
 
