@@ -1,23 +1,3 @@
-isAKey = (value) => {
-    return value.match(/^--/)
-}
-
-asKey = (inputWithLeadingMinus) => {
-    return inputWithLeadingMinus.replace(/-/g, '')
-}
-
-asValue = (unparsedValue) => {
-    return isANumber(unparsedValue) ? parseInt(unparsedValue) : unparsedValue
-}
-
-isANumber = (text) => {
-    return text.match(/^[0-9]+$/)
-}
-
-asArray = (inputs) => {
-    return (Array.isArray(inputs)) ? inputs : inputs.split(" ")
-}
-
 parse = (inputs) => {
     let lastKey
     
@@ -36,6 +16,26 @@ parse = (inputs) => {
         }
         return acc
     }, {})
+}
+
+isAKey = (value) => {
+    return value.match(/^--/)
+}
+
+asKey = (inputWithLeadingMinus) => {
+    return inputWithLeadingMinus.replace(/-/g, '')
+}
+
+asValue = (unparsedValue) => {
+    return isANumber(unparsedValue) ? parseInt(unparsedValue) : unparsedValue
+}
+
+isANumber = (text) => {
+    return text.match(/^[0-9]+$/)
+}
+
+asArray = (inputs) => {
+    return (Array.isArray(inputs)) ? inputs : inputs.split(" ")
 }
 
 
