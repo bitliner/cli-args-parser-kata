@@ -1,7 +1,27 @@
+isAKey = (value) => {
+    return value.match(/^--/)
+}
+
+asKey = (inputWithLeadingMinus) => {
+    return inputWithLeadingMinus.replace(/-/g, '')
+}
+
+asValue = (unparsedValue) => {
+    return isANumber(unparsedValue) ? parseInt(unparsedValue) : unparsedValue
+}
+
+isANumber = (text) => {
+    return text.match(/^[0-9]+$/)
+}
+
+asArray = (inputs) => {
+    return (Array.isArray(inputs)) ? inputs : inputs.split(" ")
+}
+
 parse = (inputs) => {
     let lastKey
-
-    return inputs.reduce((acc, curr) => {
+    
+    return asArray(inputs).reduce((acc, curr) => {
         if (isAKey(curr)) {
             lastKey = asKey(curr)
             if (!acc[lastKey]) {
@@ -18,20 +38,5 @@ parse = (inputs) => {
     }, {})
 }
 
-isAKey = (value) => {
-    return value.match(/^--/)
-}
-
-asKey = (inputWithLeadingMinus) => {
-    return inputWithLeadingMinus.replace(/-/g, '')
-}
-
-asValue = (unparsedValue) => {
-    return isANumber(unparsedValue) ? parseInt(unparsedValue) : unparsedValue
-}
-
-isANumber = (text) => {
-    return text.match(/^[0-9]+$/)
-}
 
 module.exports = parse

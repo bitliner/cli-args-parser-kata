@@ -19,3 +19,7 @@ test('given "--foo --bar baz --number 1" as input it produces a json object wher
 test('given "--foo --bar baz --bar zab --number 1" as input it produces a json object where number is 1', () => {
     expect(parse(['--foo', '--bar', 'baz', '--bar', 'zab', '--number', '1'])).toEqual({"bar": ["baz", "zab"], "foo": true, "number": 1})
 })
+
+test('input as string', () => {
+    expect(parse('--foo --bar baz --bar zab --number 1')).toEqual({"bar": ["baz", "zab"], "foo": true, "number": 1})
+})
