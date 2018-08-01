@@ -1,11 +1,14 @@
+let lastKey;
 parse = (inputs) => {
-    let object = {}
-    if (inputs.length > 1) {
-        object[asKey(inputs[0])] = asValue(inputs[1])
-    } else {
-        object[asKey(inputs[0])] = true
-    }
-    return object
+    return inputs.reduce((acc, curr) => {
+        if (curr.match(/^--/)) {
+            lastKey = asKey(curr)
+            acc[lastKey] = true
+        } else {
+            acc[lastKey] = asValue(curr)
+        }
+        return acc
+    }, {})
 }
 
 asKey = (inputWithLeadingMinus) => {
