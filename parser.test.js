@@ -1,25 +1,25 @@
 const parse = require('./parser')
 
-test('given --foo as input it produces a json object where foo is true', () => {
+test('parse a simple flags', () => {
     expect(parse(['--foo'])).toEqual({foo : true})
 })
 
-test('given "--foo bar" as input it produces a json object where foo is bar', () => {
+test('parse a composite flags', () => {
     expect(parse(['--foo', 'bar'])).toEqual({foo : "bar"})
 })
 
-test('given "--number 1" as input it produces a json object where number is 1', () => {
+test('parse a composite flags with integer values', () => {
     expect(parse(['--number', '1'])).toEqual({number : 1})
 })
 
-test('given "--foo --bar baz --number 1" as input it produces a json with more than one element', () => {
+test('parse multiple flags at once', () => {
     expect(parse(['--foo', '--bar', 'baz', '--number', '1'])).toEqual({"bar": "baz", "foo": true, "number": 1})
 })
 
-test('given "--foo --bar baz --bar zab --number 1" as input it produces a json object with an array', () => {
+test('handle multiple values for the same flag', () => {
     expect(parse(['--foo', '--bar', 'baz', '--bar', 'zab', '--number', '1'])).toEqual({"bar": ["baz", "zab"], "foo": true, "number": 1})
 })
 
-test('input as string', () => {
+test('support both string and array input formats', () => {
     expect(parse('--foo --bar baz --bar zab --number 1')).toEqual({"bar": ["baz", "zab"], "foo": true, "number": 1})
 })
