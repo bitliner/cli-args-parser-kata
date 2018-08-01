@@ -1,14 +1,25 @@
-let lastKey;
 parse = (inputs) => {
+    let lastKey
+
     return inputs.reduce((acc, curr) => {
-        if (curr.match(/^--/)) {
+        if (isAKey(curr)) {
             lastKey = asKey(curr)
-            acc[lastKey] = true
+            if (!acc[lastKey]) {
+                acc[lastKey] = true
+            }
         } else {
-            acc[lastKey] = asValue(curr)
+            if (acc[lastKey] === true) {
+                acc[lastKey] = asValue(curr)
+            } else {
+                acc[lastKey] = [].concat(acc[lastKey], asValue(curr))
+            }
         }
         return acc
     }, {})
+}
+
+isAKey = (value) => {
+    return value.match(/^--/)
 }
 
 asKey = (inputWithLeadingMinus) => {
