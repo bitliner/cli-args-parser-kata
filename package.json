@@ -1,10 +1,13 @@
 {
   "name": "cli-args-parser-kata",
+  "jest" : {
+    "testURL": "http://localhost/"
+  },
   "version": "1.0.0",
   "description": "cli-args-parser-kata === The goal of this program is to model a cli arguments parser. Given a series of input the program should produce a valid output according to the following specification.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
