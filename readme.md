@@ -2,13 +2,15 @@ cli-args-parser-kata
 ===
 The goal of this program is to model a cli arguments parser. Given a series of input the program should produce a valid output according to the following specification.
 
-## Before you start
-- Try not to read ahead, do one task at a time (the trick is to learn to work incrementally)!
-- Make sure you only test for correct inputs;
-- You may use whatever programming language you prefer;
-- You should commit your code on GitHub or any other SCM repository you prefer;
-- You should release your work under an OSI-approved open-source license of your choice;
-- Remember to sent a PR once you're done with the kata 😉
+## How to run the test
+First of all you need to run
+```
+npm install
+```
+And than you can run the tests
+```
+npm test
+```
 
 ## Specification
 Choose one of the following input formats:
@@ -68,13 +70,6 @@ Choose one of the following input formats:
 ### 6. try to support both `string` and `array` input formats
 within the same function or a new function one of your choice.
 
-
-## General requirements
-- **We would love to see your submission written in JavaScript**. Although, you can use whatever language and frameworks you want. Use something that you know well.
-- **Provide a README with instructions** on how to compile and run the application.
-
 **IMPORTANT:**  Implement the requirements focusing on **writing the best code** you can produce.
-
-**CODE SUBMISSION:** Add the code to your own Github account and send us the link.
 
 Credits to [Ivo Putzer](https://github.com/ivoputzer) for the original idea.
