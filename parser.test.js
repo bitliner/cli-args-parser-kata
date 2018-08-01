@@ -12,11 +12,11 @@ test('given "--number 1" as input it produces a json object where number is 1', 
     expect(parse(['--number', '1'])).toEqual({number : 1})
 })
 
-test('given "--foo --bar baz --number 1" as input it produces a json object where number is 1', () => {
+test('given "--foo --bar baz --number 1" as input it produces a json with more than one element', () => {
     expect(parse(['--foo', '--bar', 'baz', '--number', '1'])).toEqual({"bar": "baz", "foo": true, "number": 1})
 })
 
-test('given "--foo --bar baz --bar zab --number 1" as input it produces a json object where number is 1', () => {
+test('given "--foo --bar baz --bar zab --number 1" as input it produces a json object with an array', () => {
     expect(parse(['--foo', '--bar', 'baz', '--bar', 'zab', '--number', '1'])).toEqual({"bar": ["baz", "zab"], "foo": true, "number": 1})
 })
 

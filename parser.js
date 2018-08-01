@@ -1,6 +1,6 @@
 parse = (inputs) => {
     let lastKey
-    
+
     return asArray(inputs).reduce((acc, curr) => {
         if (isAKey(curr)) {
             lastKey = asKey(curr)
@@ -37,6 +37,5 @@ isANumber = (text) => {
 asArray = (inputs) => {
     return (Array.isArray(inputs)) ? inputs : inputs.split(" ")
 }
-
 
 module.exports = parse
